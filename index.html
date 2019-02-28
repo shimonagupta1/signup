@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> sign up </title>
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="new1.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script> var check = function() {
+        if (document.getElementById('pswd').value ==
+            document.getElementById('repswd').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Password matching';
+            document.getElementById('submit').disabled = false;
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Password not matching';
+            document.getElementById('submit').disabled = true;
+        }
+        if (document.getElementById('repswd').value == "")
+        {document.getElementById('message').innerHTML = '';}
+    }
+    </script>
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="login-box">
+        <h1 class="info-text"> Sign Up </h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <form class="form-container" action="/insert" method="post">
+            <div class="input-addon">
+                <input class="form-element input-field" placeholder="Name" type="text" name="name" id="name" required>
+                <button class="input-addon-item">
+                    <span class="fa fa-user"></span>
+                </button>
+
+            </div>
+            <div class="input-addon">
+                <input class="form-element input-field" placeholder="Email" type="email" id="email" name="email" required>
+                <button class="input-addon-item">
+                    <span class="fa fa-envelope"></span>
+                </button>
+            </div>
+            <div class="input-addon">
+                <input class="form-element input-field" placeholder="Password" type="password" id="pswd" name="pswd" required onkeyup='check();'>
+                <button class="input-addon-item">
+                    <span class="fa fa-lock"></span>
+                </button>
+            </div>
+            <div class="input-addon">
+
+                    <input class="form-element input-field" placeholder="Re-type password" type="password" id="repswd" name="repswd" required onkeyup='check();'>
+                    <button class="input-addon-item">
+                       <span class="fa fa-lock"></span>
+                    </button>
+            </div>
+
+            <span id='message'></span>
+            <input class="form-element is-submit" type="submit" value="Create User" id="submit">
+        </form>
+        <p>Or if you already have an user <a href="https://google.com">login here.</a></p>
+    </div>
+</div>
+</body>
+</html>
